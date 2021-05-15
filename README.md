@@ -4,8 +4,10 @@ OS: RTOS Zephyr
 
 Project:
 
-Inter thread communication which is boost c++ style on arm and ubuntu x86_64
+Cross Platform inter thread communication which is using boost c++ style
 
-Open project with Segger embedded studio or Eclipse
+Open project with Segger embedded studio(arm) or Eclipse(x86_64)
+
+In x86_64 dumpAlloc() will help you find memory leak
 
 
