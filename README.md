@@ -2,7 +2,7 @@ NRF9160 Cortex-M33
 
 OS: RTOS Zephyr
 
-Project:
+Project explaining:
 
 Cross Platform inter thread communication which is using boost c++ style
 
