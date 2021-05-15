@@ -1,0 +1,48 @@
+/*
+ * Copyright (c) 2021 Nordic Semiconductor ASA
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/ {
+	chosen {
+		zephyr,console     = &uart0;
+		zephyr,shell-uart  = &uart0;
+		zephyr,uart-mcumgr = &uart0;
+		zephyr,bt-mon-uart = &uart0;
+	};
+};
+
+&uart0 {
+        current-speed = <115200>;
+        status = "okay";
+        rx-pin = <0>;
+        tx-pin = <1>;
+        /delete-property/ cts-pin;
+        /delete-property/ rts-pin;
+};
+
+&uart1 {
+        current-speed = <115200>;
+        status = "okay";
+        rx-pin = <0x15>;
+        tx-pin = <0x16>;
+        /delete-property/ cts-pin;
+        /delete-property/ rts-pin;
+};
+
+&uart2 {
+        current-speed = <115200>;
+        status = "okay";
+        rx-pin = <0x1b>;
+        tx-pin = <0x1c>;
+        /delete-property/ cts-pin;
+        /delete-property/ rts-pin;
+};
+
+/*prevent irq conflict with uart2*/
+&i2c2 {
+        compatible = "nordic,nrf-twim";
+		status = "disabled";
+};
+
