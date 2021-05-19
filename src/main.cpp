@@ -16,6 +16,7 @@
 //#include <data/json.h>
 #endif
 
+#include <stdint.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stddef.h>

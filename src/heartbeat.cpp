@@ -3,6 +3,8 @@
 #include <drivers/uart.h>
 #include <power/reboot.h>
 #endif
+
+#include <stdint.h>
 #include <string.h>
 #include <stdio.h>
 #include <vector>
@@ -71,9 +73,9 @@ int HeartBeat_LiveCheck()
 
 void HeartBeat_Init()
 {
-  s_heartbeat_live_map.insert({SRC_TEST_UART00, 0 });
-  s_heartbeat_live_map.insert({SRC_TEST_UART01, 0 });
-  s_heartbeat_live_map.insert({SRC_TEST_UART02, 0 });
+  s_heartbeat_live_map.insert({SRC_TEST_UART00, false });
+  s_heartbeat_live_map.insert({SRC_TEST_UART01, false });
+  s_heartbeat_live_map.insert({SRC_TEST_UART02, false });
 
   //EventManager::Get()->ConnectEventSlot(EVT_HEARTBEAT_FEEDBACK, new EventFunctor<EventPack>(&HeartBeat_FeedBack));
   EventManager::Get()->ConnectEventSlot(EVT_HEARTBEAT_FEEDBACK, (void*)&HeartBeat_FeedBack);
