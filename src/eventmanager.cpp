@@ -76,7 +76,7 @@ void EventManager::ProcessEvent(int type, int messageID, void* callmember, Event
     unsigned int                      remain_size_mit;
     EventMessageSlot_Vector::iterator vit;
     EventMessageSlot_Map::iterator    mit;
-    EventMessageSlot_Map::iterator    tmp_ptr;
+    EventMessageSlot_Map::iterator    tmp;
     EventFunctor<EventPack>*          functor;
 
     switch(type)
@@ -113,9 +113,10 @@ void EventManager::ProcessEvent(int type, int messageID, void* callmember, Event
                     //empty slot remove
                     if( mit->second.size() <= 0 )
                     {
-                        tmp_ptr = mit; //content copy
-                        mit++;
-                        m_EventMessageSlotMap.erase(tmp_ptr);
+                        tmp = mit; //content copy
+                        //mit++;
+                        //m_EventMessageSlotMap.erase(tmp);
+                        mit = m_EventMessageSlotMap.erase(tmp);
                     }
                     else
                     {
